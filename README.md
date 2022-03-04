@@ -19,5 +19,9 @@ Changes in the Front-end:<br/>
 	- Create a new page responsible for showing the replies.<br/>
 	- Create a new component responsible for getting the response from the user.<br/>
 	
-	
 
+# Phase 3, self-critique & scaling
+
+Changes for scalability:<br/>
+	- Move the posts to an Elasticsearch database.<br/>
+	- Move the process of creating new posts and replies to a queueing technology (RabbitMQ or Kafka).<br/>	
