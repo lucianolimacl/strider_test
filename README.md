@@ -4,7 +4,7 @@ Questions:<br/>
 	- The new feature will need pagination like the homepage?<br/>
 	- Do we need to send notifications to the user when someone replies to the post?<br/>
 
-Changes in the Database:
+Changes in the Database:<br/>
 	- Create a new column in the table "Posts" called "ReplyToPostId".<br/>
 		- This new column is a reference to the Table "Posts", column "Id".<br/>		
 		- column details:<br/> 
