@@ -12,7 +12,7 @@ Changes in the Database:<br/>
 			- nullable: yes.<br/>		
 		
 Changes in the API:<br/>
-	- Map a new column in the Models;<br/>
+	- Map the new column in the Models;<br/>
 	- Create a new method responsible for handling the replies.<br/>
 	
 Changes in the Front-end:<br/>
