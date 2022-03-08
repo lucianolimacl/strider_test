@@ -1,0 +1,286 @@
+{
+	"info": {
+		"_postman_id": "b2c01703-ff03-48e3-95e0-6f4af4d55f5c",
+		"name": "strider",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "posts",
+			"item": [
+				{
+					"name": "home",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 1,\r\n  \"description\": \"hellow world\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7192/api/posts?UserId=1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7192",
+							"path": [
+								"api",
+								"posts"
+							],
+							"query": [
+								{
+									"key": "UserId",
+									"value": "1"
+								},
+								{
+									"key": "IncludeOnlyFollowing",
+									"value": "true",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "new post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 1,\r\n  \"description\": \"hello world\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7192/api/posts",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7192",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "quote post",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 1,\r\n  \"description\": \"quote user 2\",\r\n  \"quotePostId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7192/api/posts",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7192",
+							"path": [
+								"api",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "repost",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7192/api/posts/2/repost",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7192",
+							"path": [
+								"api",
+								"posts",
+								"2",
+								"repost"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "new user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userName\": \"user1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7192/api/users",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7192",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "follow user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userFollowedId\": 2\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7192/api/users/1/follow",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7192",
+							"path": [
+								"api",
+								"users",
+								"1",
+								"follow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "unfollow user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"userFollowedId\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "https://localhost:7192/api/users/1/unfollow/2",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7192",
+							"path": [
+								"api",
+								"users",
+								"1",
+								"unfollow",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user posts",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7192/api/users/1/posts",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7192",
+							"path": [
+								"api",
+								"users",
+								"1",
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get user",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://localhost:7192/api/users/1",
+							"protocol": "https",
+							"host": [
+								"localhost"
+							],
+							"port": "7192",
+							"path": [
+								"api",
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
