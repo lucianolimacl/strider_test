@@ -24,12 +24,12 @@ Changes in the Front-end:<br/>
 # Phase 3, self-critique & scaling
 
 Changes for maintainability:<br/>
-	- Implement jwt authentication. 
-	- Get the UserId from the authentication context. 
-	- Add Unit Test to all layers of the projetct.
-	- Remove the Library AutoMapper from the project and create the mappings using a own custom solution.
-	- Move all the errors messages to a resource file.
-	
+	- Implement jwt authentication.<br/> 
+	- Get the UserId from the authentication context.<br/> 
+	- Add Unit Test to all layers of the projetct.<br/>
+	- Remove the Library AutoMapper from the project and create the mappings using a own custom solution.<br/>
+	- Move all the errors messages to a resource file.<br/>
+
 Changes for scalability:<br/>
 	- Move the posts to an Elasticsearch database.<br/>
 	- Move the process of creating new posts and replies to a queueing technology (RabbitMQ or Kafka).<br/>	
