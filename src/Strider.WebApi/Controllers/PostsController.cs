@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Strider.Application.Interfaces;
 using Strider.Application.ViewModels;
-using Strider.Common;
 using Strider.Common.Filters;
 
 namespace Strider.WebApi.Controllers
 {
     [Route("api/posts")]
     [ApiController]
-    public class PostsController : ControllerBase
+    public class PostsController : BaseController
     {
         private readonly IPostAppService _postAppService;
 
@@ -24,15 +23,17 @@ namespace Strider.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<Result<PostViewModel>> CreatePostAsync([FromBody] CreatePostViewModel model)
+        public async Task<IActionResult> CreatePostAsync([FromBody] CreatePostViewModel model)
         {
-            return await _postAppService.CreatePostAsync(model);
+            var result = await _postAppService.CreatePostAsync(model);
+            return FilterResult(result);
         }
 
         [HttpPost("{id:int}/repost")]
-        public async Task<Result<PostViewModel>> CreateRespostAsync(int id, [FromBody] CreateRepostViewModel model)
+        public async Task<IActionResult> CreateRespostAsync(int id, [FromBody] CreateRepostViewModel model)
         {
-            return await _postAppService.CreateRepostAsync(id, model);
+            var result = await _postAppService.CreateRepostAsync(id, model);
+            return FilterResult(result);
         }
     }
 }

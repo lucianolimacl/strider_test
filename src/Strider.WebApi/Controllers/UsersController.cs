@@ -1,14 +1,13 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Strider.Application.Interfaces;
 using Strider.Application.ViewModels;
-using Strider.Common;
 using Strider.Common.Filters;
 
 namespace Strider.WebApi.Controllers
 {
     [Route("api/users")]
     [ApiController]
-    public class UsersController : ControllerBase
+    public class UsersController : BaseController
     {
         private readonly IUserAppService _userAppService;
         private readonly IPostAppService _postAppService;
@@ -37,21 +36,24 @@ namespace Strider.WebApi.Controllers
         }
 
         [HttpPost]
-        public async Task<Result<UserViewModel>> CreateUserAsync(CreateUserViewModel model)
+        public async Task<IActionResult> CreateUserAsync(CreateUserViewModel model)
         {
-            return await _userAppService.CreateUserAsync(model);
+            var result = await _userAppService.CreateUserAsync(model);
+            return FilterResult(result);
         }
 
         [HttpPost("{id:int}/follow")]
-        public async Task<Result<UserFollowViewModel>> FollowUserAsync(int id, CreateUserFollowViewModel model)
+        public async Task<IActionResult> FollowUserAsync(int id, CreateUserFollowViewModel model)
         {
-            return await _userAppService.FollowUserAsync(id, model);
+            var result = await _userAppService.FollowUserAsync(id, model);
+            return FilterResult(result);
         }
 
         [HttpPost("{id:int}/unfollow/{userFollowedId:int}")]
-        public async Task<Result<UserFollowViewModel>> UnfollowUserAsync(int id, int userFollowedId)
+        public async Task<IActionResult> UnfollowUserAsync(int id, int userFollowedId)
         {
-            return await _userAppService.UnfollowUserAsync(id, userFollowedId);
+            var result = await _userAppService.UnfollowUserAsync(id, userFollowedId);
+            return FilterResult(result);
         }
     }
 }
